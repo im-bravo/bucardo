@@ -9159,7 +9159,7 @@ sub install {
     my $BDSN  = 'dbi:Pg:dbname=bucardo';
     $host and $host ne '<none>' and $BDSN .= ";host=$host";
     $port and $BDSN .= ";port=$port";
-    $dbh = DBI->connect($BDSN, 'bucardo', '', {AutoCommit=>0,RaiseError=>1,PrintError=>0});
+    $dbh = DBI->connect($BDSN, 'bucardo', 'bucardo', {AutoCommit=>0,RaiseError=>1,PrintError=>0});
     $dbh->do('SET search_path = bucardo');
 
     $SQL = 'UPDATE bucardo.bucardo_config SET setting = ? WHERE name = ?';
